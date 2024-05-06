@@ -9,7 +9,7 @@ https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/6b7931ba-a585-
 
 Unlike other countries, Germany does not have a strict law regarding bicycle helmets. To this day, it is not compulsory to wear one, but only a recommended safety measure. Unfortunately, many people don't take this measure seriously, which can lead to severe injuries if an accident arises. Especially in a big city like Berlin, cyclist casualties hit the news on a daily bases.
 
-My goal with this project was to raise cyclists awareness, using a friendly and direct feedback method. You may have seen those interactive street signs for cars: If you drive under the speed limit, you get a nice green smiley. But if you drive above it, you get an angry red one instead. Simple but effective. I surprised myself slowing down unconsciously, just for the pleasure to see a smiley face. Who doesn't need one on a Monday morning?
+My goal with this project was to raise cyclists awareness, using a friendly and direct feedback method. You may have seen those interactive street signs for cars: If you drive under the speed limit, you get a nice green smiley. But if you drive above it, you get an angry red one instead. Simple but effective. I surprised myself slowing down unconsciously, just for the pleasure to see a smiling face. Who doesn't need one on a Monday morning?
 
 The goal of this project was therefore to train a Deep Learning model to detect on a video source if a cyclist is wearing a helmet or not. Displayed on a traffic light for instance, cyclists would get a direct feedback, in form of a green happy or red angry smiley.
 
@@ -60,7 +60,7 @@ My training steps are available in a [Kaggle](https://www.kaggle.com/code/alexan
 
 But regardless how complex your model is, you still need a valuable dataset to train it if you want to get the best out of it.
 
-![dataset_cover](https://storage.googleapis.com/kaggle-datasets-images/687187/1204986/dac2fb8a09b4f44385f423e90c9900bf/dataset-cover.jpg)
+![dataset_cover](readme/dataset-cover.jpg)
 
 For this project I used the [Helmet Detection](https://www.kaggle.com/datasets/andrewmvd/helmet-detection) dataset on Kaggle. It's not exactly what I need, as it's classifying all kind of driving helmets, also motorbike ones. But let's still give it a try.
 
@@ -194,7 +194,7 @@ Let's load it and predict on a few test pictures. I gathered all my tests in the
 ![image13_finetuned](readme/image13_finetuned.png)   
 ![image17_finetuned](readme/image17_finetuned.png)   
 
-Our model is doing a good job on images. But what about predicting on a video source, which is what we need in the end? Let's import OpenCV and give it a try on our the webcam. Grab your helmet!
+Our model is doing a good job on images. But what about predicting on a video source, which is what we need in the end? Let's import OpenCV and give it a try on the webcam. Grab your helmet!
 
 <img src="https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/fa3e03c9-ebd9-448b-9bc1-d44c44cc26de" width="300"/>
 
@@ -208,7 +208,7 @@ We are now hitting the main challenge of this project:
 As discussed in the YOLO section above, Pre-trained versions of YOLOv8 can recognize up to 1000 classes out of the box (ImageNet). But you will not find a *'Cyclist with helmet'* class, rather separate classes like *'person'*, *'bike'* or *'helmet'*. We should therefore come up with an algorithm that not only will detect these classes but will be able to tell if this person is actually sitting on a bike and if this helmet is actually on the cyclist's head. And that's not as easy as it sound!
 
 ![captcha.png](readme/captcha.png)  
-*Are you making fun of  me !?*
+*Are you making fun of me !?*
 
 In the process of fine-tuning YOLOv8n to classify heads with or without helmets, we altered the output layer of our model and we lost all its pre-trained proficiency. We picked the version pre-trained on COCO, which originally could classify persons and bikes. But now it can only classify heads with or without helmets, which is not enough for our use case. We don't want a random person walking in the street to get a red frowning smiley for not wearing a helmet!
 
@@ -258,7 +258,7 @@ To finish, I moved everything to **project_demo.py** and added some more setting
 
 # Conclusion and Improvements
 
-This was intended as a short-term project. I spent two days on it to complete my module and another 4 days afterwards to come up with a clean solution. While I achieved my main objective, performance remains the main issue of this project. The tracking examples displayed on this page are played in real-time, but my prediction model is running at about 7 FPS on my local computer. This is not fast enough to detect cyclists accurately and give them a real-time feedback.
+This was intended as a short-term project. I spent two days on it to complete my module and another 4 days afterwards to come up with a clean solution. While I achieved my objective, performance remains the main issue of this project. The tracking examples displayed on this page are played in real-time, but my prediction model is running at about 7 FPS on my local computer. This is not fast enough to detect cyclists accurately and give them a real-time feedback.
 
 To move this project towards a final solution, we should first research what device could be used to detect cyclists in the street (Raspberry Pi?), what performance it offers and how we could optimize our prediction model to run much faster.
 
