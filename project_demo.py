@@ -30,7 +30,7 @@ person_confidence = 0.25  # minimum confidence to consider a person detection
 bike_confidence = 0.25  # minimum confidence to consider a bike detection
 helmet_confidence = 0.75  # minimum confidence to consider a helmet detection
 
-debug = False  # display all bounding boxes on the video
+debug = True  # display all bounding boxes on the video
 debug_color = (255, 255, 255)  # white
 
 combined_box = True  # display the combined bounding box on the video
@@ -38,7 +38,7 @@ combined_box_padding = 3  # padding around the combined bounding box
 red_color = (0, 255, 0)  # green
 green_color = (0, 0, 255)  # red
 
-show_fps = False  # display the FPS counter on the video
+show_fps = True  # display the FPS counter on the video
 fps_color = (255, 255, 255)  # white
 fps_font_size = 0.5  # text size of the FPS counter
 fps_thickness = 1  # text thickness of the FPS counter
@@ -485,8 +485,8 @@ def track_on_video(video_path, tracking_assignment, conf, output_path=None):
 # %% Main
 if __name__ == '__main__':
 
-    video_file = 'video4.mp4'
-    video_path = os.path.join(predict_dir, video_file)
+    video_file = 'video1.mp4'
+    video_path = os.path.join(test_videos_dir, video_file)
 
     # Define the tracking assignment (which model should track which classes)
     tracking_assignment = [
@@ -496,8 +496,8 @@ if __name__ == '__main__':
     ]
 
     # define output path to save the tracked video (None to skip saving)
-    output_path = os.path.join(test_videos_dir, f"tracked_{video_file}")
-    # output_path = None
+    output_file = f"{video_file[:-4]}_tracked_{datetime.now().strftime('%d%m%y_%H%M%S')}.{video_file[-4:]}"
+    output_path = os.path.join(predict_dir, output_file)
 
     # Predict on the frame
     track_on_video(video_path, tracking_assignment, conf=tracking_confidence, output_path=output_path)
