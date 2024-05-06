@@ -3,6 +3,8 @@ _Combine and fine-tune YOLO models to detect if cyclists are wearing a helmet or
 
 I created and presented this project to complete my 120-hour Deep Learning bootcamp in April 2024. I then spent some more time improving it until I get convincing results.
 
+https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/6b7931ba-a585-4a63-814b-6abe569febaf
+
 # Project presentation
 
 Unlike other countries, Germany does not have a strict law regarding bicycle helmets. To this day, it is not compulsory to wear one, but only a recommended safety measure. Unfortunately, many people don't take this measure seriously, which can lead to severe injuries if an accident arises. Especially in a big city like Berlin, cyclist casualties hit the news on a daily bases.
@@ -194,7 +196,7 @@ Let's load it and predict on a few test pictures. I gathered all my tests in the
 
 Our model is doing a good job on images. But what about predicting on a video source, which is what we need in the end? Let's import OpenCV and give it a try on our the webcam. Grab your helmet!
 
-<img src='https://alexdjulin.ovh/dev/bike_helmet_detection/tracked_webcam.gif' width=300>
+<img src="https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/fa3e03c9-ebd9-448b-9bc1-d44c44cc26de" width="300"/>
 
 All good. The confidence is not as high as I would have expected, but let's move on and see if this is enough for our use-case.
 
@@ -244,6 +246,10 @@ We now have all the cards we need in our hand. In the **BikeHelmetDetection_Test
 Thanks to these helpers, we can now build our OpenCV loop that will run through the video input, process each frame and draw the result on it before displaying it. 
 
 As said, we need a way to assign our predicted classes to different models. I'm doing this with a simple assignment dictionnary, where I list each model and the classes I expect it to predict. This will undoubtedly impact our solution's performance, as we run predictions on multiple models at once, for each single frame. To help with that, I am running predictions on different threads and I combine them at the end, before sending them to **track_cyclist_with_helmet**, to process and draw the result.
+
+https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/fd98e431-93ae-4110-8afa-fe3da5de63ed
+  
+_Debug flag on: The bounding boxes of the different classes are displayed in white, the combined box in red or green._
 
 Et voilà! Our cyclists now get a green or red bounding box around them and we can display the resulting smiley as feedback.
 
