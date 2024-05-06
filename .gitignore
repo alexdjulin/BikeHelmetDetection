@@ -23,13 +23,12 @@ env/
 .DS_Store
 
 # untracked folder
-_untracked
-
-# Training data
+presentation/
+predict/
 training/
+runs/
 
 # Ignore some test data
-video1.mp4
+video2.mp4
 video3.mp4
-tracked_*.mp4
-tracked_*.gif
+video4.mp4
