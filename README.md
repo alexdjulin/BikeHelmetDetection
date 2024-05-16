@@ -1,7 +1,7 @@
 # Bicycle helmet detection using YOLOv8 and OpenCV
 _Combine and fine-tune YOLO models to detect if cyclists are wearing a helmet or not._
 
-I created and presented this project to complete my 120-hour Deep Learning bootcamp in April 2024. I then spent some more time improving it until I get convincing results.
+I created and presented this project to complete my 160-hour Deep Learning bootcamp in April 2024. I then spent some more time improving it until I get convincing results.
 
 https://github.com/alexdjulin/BikeHelmetDetection/assets/53292656/6b7931ba-a585-4a63-814b-6abe569febaf
 
